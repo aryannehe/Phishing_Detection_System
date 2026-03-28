@@ -21,3 +21,12 @@ from sklearn.model_selection import train_test_split, cross_val_score
 from sklearn.metrics import classification_report, accuracy_score
 
 # ─── Phishing indicator patterns ────────────────────────────────────────────
+URGENT_PATTERNS = [
+    r'\burgent\b', r'\bimmediately\b', r'\baction required\b',
+    r'\baccount.*suspend', r'\bverif', r'\bconfirm.*identity',
+    r'\bwithin 24 hours?\b', r'\bwithin 48 hours?\b', r'\bexpire[sd]?\b',
+    r'\blimited time\b', r'\bact now\b', r'\bwarning\b', r'\balert\b',
+    r'\bsuspicious activity\b', r'\bunusual.*activit', r'\bsecurity.*breach',
+    r'\byour account\b.*\block', r'\bblock.*your account\b',
+]
+
