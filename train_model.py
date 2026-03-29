@@ -38,3 +38,10 @@ SENSITIVE_PATTERNS = [
     r'\bupi\b', r'\bifsc\b', r'\botp\b', r'\bcvv\b',
 ]
 
+FINANCIAL_LURE_PATTERNS = [
+    r'\bwon\b.*\bprize\b', r'\blottery\b', r'\bmillion\b.*\bdollar',
+    r'\brefund\b', r'\btax.*return\b', r'\bclaim.*reward',
+    r'\bfree.*gift\b', r'\bcongratulation', r'\binheritance\b',
+    r'\bwire.*transfer\b', r'\bwestern union\b', r'\bmoneygram\b',
+]
+
