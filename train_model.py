@@ -30,3 +30,11 @@ URGENT_PATTERNS = [
     r'\byour account\b.*\block', r'\bblock.*your account\b',
 ]
 
+SENSITIVE_PATTERNS = [
+    r'\bpassword\b', r'\bcredit card\b', r'\bssn\b', r'\bsocial security\b',
+    r'\bbank account\b', r'\brouting number\b', r'\bpin\b',
+    r'\bdate of birth\b', r'\bmother.*maiden\b', r'\bsecurity question\b',
+    r'\bpan card\b', r'\baadhar\b', r'\bkyc\b', r'\bnetbanking\b',
+    r'\bupi\b', r'\bifsc\b', r'\botp\b', r'\bcvv\b',
+]
+
