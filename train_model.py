@@ -45,3 +45,9 @@ FINANCIAL_LURE_PATTERNS = [
     r'\bwire.*transfer\b', r'\bwestern union\b', r'\bmoneygram\b',
 ]
 
+DECEPTIVE_PATTERNS = [
+    r'\bclick here\b', r'\bclick.*link\b', r'\bdo not.*ignore\b',
+    r'\bdo not.*delete\b', r'\bnever share\b', r'\bbelow.*link\b',
+    r'\blogin.*here\b', r'\bsign.*in.*here\b', r'\bupdate.*now\b',
+]
+
