@@ -58,3 +58,13 @@ SPOOFING_PATTERNS = [
     r'\bincome tax\b', r'\birdai\b', r'\bsebi\b',
 ]
 
+SUSPICIOUS_URL_PATTERNS = [
+    r'https?://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}',  # IP-based URL
+    r'http://',  # Non-HTTPS
+    r'secure.*login.*\.(?!com\b|org\b|gov\b)',
+    r'account.*verify.*\.',
+    r'update.*info.*\.',
+    r'\.tk\b', r'\.ml\b', r'\.ga\b', r'\.cf\b', r'\.gq\b',  # Free TLDs
+    r'bit\.ly', r'tinyurl', r'goo\.gl', r't\.co',  # URL shorteners
+]
+
