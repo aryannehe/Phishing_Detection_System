@@ -51,3 +51,10 @@ DECEPTIVE_PATTERNS = [
     r'\blogin.*here\b', r'\bsign.*in.*here\b', r'\bupdate.*now\b',
 ]
 
+SPOOFING_PATTERNS = [
+    r'\bpaypal\b', r'\bamazon\b', r'\bnetflix\b', r'\bapple\b',
+    r'\bmicrosoft\b', r'\bgoogle\b', r'\bfacebook\b', r'\binstagram\b',
+    r'\bsbi\b', r'\bhdfc\b', r'\bicici\b', r'\baxis bank\b',
+    r'\bincome tax\b', r'\birdai\b', r'\bsebi\b',
+]
+
