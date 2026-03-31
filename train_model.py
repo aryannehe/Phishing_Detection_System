@@ -68,3 +68,10 @@ SUSPICIOUS_URL_PATTERNS = [
     r'bit\.ly', r'tinyurl', r'goo\.gl', r't\.co',  # URL shorteners
 ]
 
+GENERIC_GREETING = [
+    r'\bdear customer\b', r'\bdear user\b', r'\bdear member\b',
+    r'\bdear account holder\b', r'\bvalued customer\b',
+    r'\bto whom it may concern\b',
+]
+
+# ─── Feature Engineering ─────────────────────────────────────────────────────
