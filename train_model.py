@@ -94,3 +94,14 @@ class SecurityFeatureExtractor(BaseEstimator, TransformerMixin):
         html_tags = len(re.findall(r'<[a-z][^>]*>', text, re.I))
         return min(html_tags, 20)
 
+    def _special_char_ratio(self, text):
+        if not text: return 0
+        specials = sum(1 for c in text if c in '!@#$%^&*()_+[]{}|;:,.<>?')
+        return specials / max(len(text), 1)
+
+    def _caps_ratio(self, text):
+        if not text: return 0
+        letters = [c for c in text if c.isalpha()]
+        if not letters: return 0
+        return sum(1 for c in letters if c.isupper()) / len(letters)
+
