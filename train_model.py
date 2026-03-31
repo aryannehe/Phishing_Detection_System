@@ -75,3 +75,9 @@ GENERIC_GREETING = [
 ]
 
 # ─── Feature Engineering ─────────────────────────────────────────────────────
+class SecurityFeatureExtractor(BaseEstimator, TransformerMixin):
+    """Extracts hand-crafted security features from email text."""
+
+    def _count_urls(self, text):
+        return len(re.findall(r'https?://\S+', text))
+
