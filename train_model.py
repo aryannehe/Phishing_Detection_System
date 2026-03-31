@@ -81,3 +81,9 @@ class SecurityFeatureExtractor(BaseEstimator, TransformerMixin):
     def _count_urls(self, text):
         return len(re.findall(r'https?://\S+', text))
 
+    def _count_suspicious_urls(self, text):
+        count = 0
+        for p in SUSPICIOUS_URL_PATTERNS:
+            count += len(re.findall(p, text, re.I))
+        return count
+
