@@ -87,3 +87,10 @@ class SecurityFeatureExtractor(BaseEstimator, TransformerMixin):
             count += len(re.findall(p, text, re.I))
         return count
 
+    def _count_pattern_group(self, text, patterns):
+        return sum(1 for p in patterns if re.search(p, text, re.I))
+
+    def _html_indicator(self, text):
+        html_tags = len(re.findall(r'<[a-z][^>]*>', text, re.I))
+        return min(html_tags, 20)
+
