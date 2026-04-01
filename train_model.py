@@ -105,3 +105,11 @@ class SecurityFeatureExtractor(BaseEstimator, TransformerMixin):
         if not letters: return 0
         return sum(1 for c in letters if c.isupper()) / len(letters)
 
+    def _word_count(self, text):
+        return len(text.split())
+
+    def _avg_word_len(self, text):
+        words = text.split()
+        if not words: return 0
+        return sum(len(w) for w in words) / len(words)
+
