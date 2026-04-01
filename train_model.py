@@ -113,3 +113,9 @@ class SecurityFeatureExtractor(BaseEstimator, TransformerMixin):
         if not words: return 0
         return sum(len(w) for w in words) / len(words)
 
+    def _exclamation_count(self, text):
+        return min(text.count('!'), 10)
+
+    def _question_count(self, text):
+        return min(text.count('?'), 10)
+
