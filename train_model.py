@@ -126,3 +126,5 @@ class SecurityFeatureExtractor(BaseEstimator, TransformerMixin):
         # Legitimate emails often address by name
         return 1 if re.search(r'\bdear\s+[A-Z][a-z]+\b', text) else 0
 
+    def fit(self, X, y=None): return self
+
