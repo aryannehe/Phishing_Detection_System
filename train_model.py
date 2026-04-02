@@ -119,3 +119,10 @@ class SecurityFeatureExtractor(BaseEstimator, TransformerMixin):
     def _question_count(self, text):
         return min(text.count('?'), 10)
 
+    def _has_unsubscribe(self, text):
+        return 1 if re.search(r'\bunsubscribe\b', text, re.I) else 0
+
+    def _has_dear_name(self, text):
+        # Legitimate emails often address by name
+        return 1 if re.search(r'\bdear\s+[A-Z][a-z]+\b', text) else 0
+
