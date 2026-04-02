@@ -128,3 +128,31 @@ class SecurityFeatureExtractor(BaseEstimator, TransformerMixin):
 
     def fit(self, X, y=None): return self
 
+    def transform(self, X):
+        features = []
+        for text in X:
+            text = text or ''
+            f = [
+                self._count_urls(text),
+                self._count_suspicious_urls(text),
+                self._count_pattern_group(text, URGENT_PATTERNS),
+                self._count_pattern_group(text, SENSITIVE_PATTERNS),
+                self._count_pattern_group(text, FINANCIAL_LURE_PATTERNS),
+                self._count_pattern_group(text, DECEPTIVE_PATTERNS),
+                self._count_pattern_group(text, SPOOFING_PATTERNS),
+                self._count_pattern_group(text, GENERIC_GREETING),
+                self._html_indicator(text),
+                self._special_char_ratio(text),
+                self._caps_ratio(text),
+                self._word_count(text),
+                self._avg_word_len(text),
+                self._exclamation_count(text),
+                self._question_count(text),
+                self._has_unsubscribe(text),
+                self._has_dear_name(text),
+                len(text),
+            ]
+            features.append(f)
+        return np.array(features, dtype=float)
+
+
