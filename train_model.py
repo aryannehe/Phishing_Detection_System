@@ -168,3 +168,11 @@ def preprocess(text):
     return text
 
 # ─── Dataset ─────────────────────────────────────────────────────────────────
+PHISHING_EMAILS = [
+    # Account suspension / credential theft
+    ("URGENT: Verify your account now", "Dear Customer, Your account has been suspended due to unusual activity. Click here immediately to verify your identity and restore access: http://secure-account-verify-login.com/restore?id=123. Failure to act within 24 hours will result in permanent account closure. Do not ignore this message."),
+    ("Action Required: Update Your Banking Information", "Dear Valued Customer, We have detected suspicious activity on your SBI NetBanking account. Your account will be blocked unless you update your information immediately. Visit http://sbi-secure-update.tk/login to confirm your details. Provide your PAN card, Aadhaar number, and OTP for verification."),
+    ("Your PayPal Account is Limited", "Dear PayPal User, We've noticed some unusual activity on your account. Your account access has been limited. To restore full access, please verify your credit card and confirm your date of birth at http://paypal-verify.ml/confirm. This is urgent - act now!"),
+    ("Microsoft Security Alert", "Warning! Your Microsoft account has been compromised. Sign in here immediately to secure your account: http://192.168.1.1/microsoft-secure. Enter your password and security question answers to prevent unauthorized access."),
+    ("Amazon: Your order has been cancelled", "Dear Customer, Your recent Amazon order #928374 has been flagged for suspicious activity. To prevent account suspension, verify your billing information now: http://amzon-secure.ga/verify. Enter your credit card number and CVV."),
+    ("IRS Tax Refund Notice", "Congratulations! You are eligible for a tax refund of $3,847. To claim your refund immediately, provide your social security number and bank account routing number at http://irs-refund-claim.cf/claim. This offer expires in 24 hours."),
