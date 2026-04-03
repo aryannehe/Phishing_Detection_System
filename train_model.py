@@ -156,3 +156,15 @@ class SecurityFeatureExtractor(BaseEstimator, TransformerMixin):
         return np.array(features, dtype=float)
 
 
+def preprocess(text):
+    """Clean and normalize email text."""
+    text = text.lower()
+    text = re.sub(r'<[^>]+>', ' ', text)       # strip HTML
+    text = re.sub(r'https?://\S+', ' URL ', text)  # replace URLs
+    text = re.sub(r'\S+@\S+', ' EMAIL ', text) # replace emails
+    text = re.sub(r'\d{10,}', ' PHONE ', text)  # long numbers
+    text = re.sub(r'[^\w\s]', ' ', text)
+    text = re.sub(r'\s+', ' ', text).strip()
+    return text
+
+# ─── Dataset ─────────────────────────────────────────────────────────────────
