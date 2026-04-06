@@ -201,3 +201,7 @@ PHISHING_EMAILS = [
     ("Suspicious Transaction Detected", "Alert! A transaction of Rs. 25,000 was initiated from your account. If you did not authorize this, click here immediately to cancel: http://cancel-transaction.ga/stop. Provide your debit card PIN and OTP to reverse this transaction within 30 minutes."),
     ("Apple iTunes Billing", "Your Apple account has been charged $299 for iTunes subscription renewal. If you did not authorize this charge, dispute it immediately at http://apple-billing-dispute.cf/cancel. Enter your Apple ID, password, and credit card to get a refund."),
     # Legitimate-looking but with red flags
+    ("Account Security Update", "Dear account holder, this is a final warning that your account security is outdated. You must update your security settings and password immediately at http://bit.ly/update-security. Do not ignore this urgent security notice."),
+    ("Your Subscription Has Expired", "Dear Customer, your premium subscription has expired. To continue enjoying our services, renew now by clicking http://tinyurl.com/renew-now and entering your credit card number, CVV, and billing address. Act fast - offer expires tonight!"),
+]
+
