@@ -289,3 +289,19 @@ class CombinedFeatures(BaseEstimator, TransformerMixin):
         self.sec = SecurityFeatureExtractor()
         self.sec_scaler = MinMaxScaler()
 
+    def fit(self, X, y=None):
+        self.tfidf.fit(X)
+        self.tfidf_char.fit(X)
+        sec_feats = self.sec.transform(X)
+        self.sec_scaler.fit(sec_feats)
+        return self
+
+    def transform(self, X):
+        from scipy.sparse import hstack, csr_matrix
+        t1 = self.tfidf.transform(X)
+        t2 = self.tfidf_char.transform(X)
+        sec = self.sec.transform(X)
+        sec_scaled = self.sec_scaler.transform(sec)
+        return hstack([t1, t2, csr_matrix(sec_scaled)])
+
+
