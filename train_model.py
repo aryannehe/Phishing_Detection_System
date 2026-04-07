@@ -241,3 +241,30 @@ LEGITIMATE_EMAILS = [
     ("Alumni Association Reunion", "Dear Class of 2018, your 7-year reunion is happening on December 14th at the Grand Ballroom, University Campus. Registration is open at alumni.university.edu/reunion2025. Early bird rate of $75 available until November 1st. Reconnect with classmates and faculty!"),
 ]
 
+def build_dataset():
+    rows = []
+    for subject, body in PHISHING_EMAILS:
+        rows.append({'text': subject + ' ' + body, 'label': 1})
+    for subject, body in LEGITIMATE_EMAILS:
+        rows.append({'text': subject + ' ' + body, 'label': 0})
+
+    # Augment with variations
+    augmented = []
+    for row in rows[:]:
+        text = row['text']
+        label = row['label']
+        # Uppercase version
+        augmented.append({'text': text.upper(), 'label': label})
+        # Add extra punctuation for phishing
+        if label == 1:
+            augmented.append({'text': text + '!!!', 'label': label})
+            augmented.append({'text': 'IMPORTANT: ' + text, 'label': label})
+        else:
+            augmented.append({'text': 'Hi, ' + text, 'label': label})
+
+    rows.extend(augmented)
+    df = pd.DataFrame(rows)
+    df['text_clean'] = df['text'].apply(preprocess)
+    return df
+
+
