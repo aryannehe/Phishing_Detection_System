@@ -268,3 +268,24 @@ def build_dataset():
     return df
 
 
+class CombinedFeatures(BaseEstimator, TransformerMixin):
+    """Combine TF-IDF and security features, both normalized."""
+
+    def __init__(self):
+        self.tfidf = TfidfVectorizer(
+            analyzer='word',
+            ngram_range=(1, 3),
+            max_features=8000,
+            sublinear_tf=True,
+            min_df=1,
+        )
+        self.tfidf_char = TfidfVectorizer(
+            analyzer='char_wb',
+            ngram_range=(3, 5),
+            max_features=4000,
+            sublinear_tf=True,
+            min_df=1,
+        )
+        self.sec = SecurityFeatureExtractor()
+        self.sec_scaler = MinMaxScaler()
+
