@@ -305,3 +305,38 @@ class CombinedFeatures(BaseEstimator, TransformerMixin):
         return hstack([t1, t2, csr_matrix(sec_scaled)])
 
 
+def train():
+    print("Building dataset...")
+    df = build_dataset()
+    print(f"Total samples: {len(df)} (phishing: {df['label'].sum()}, legit: {(df['label']==0).sum()})")
+
+    X = df['text_clean'].values
+    y = df['label'].values
+
+    X_train, X_test, y_train, y_test = train_test_split(
+        X, y, test_size=0.2, random_state=42, stratify=y
+    )
+
+    print("Extracting features...")
+    combiner = CombinedFeatures()
+    combiner.fit(X_train)
+    X_train_feat = combiner.transform(X_train)
+    X_test_feat = combiner.transform(X_test)
+
+    print("Training ensemble model...")
+    lr = LogisticRegression(C=5.0, max_iter=1000, class_weight='balanced', solver='lbfgs')
+    rf = RandomForestClassifier(n_estimators=200, max_depth=15, class_weight='balanced', random_state=42, n_jobs=-1)
+    gb = GradientBoostingClassifier(n_estimators=150, max_depth=5, learning_rate=0.1, random_state=42)
+
+    ensemble = VotingClassifier(
+        estimators=[('lr', lr), ('rf', rf), ('gb', gb)],
+        voting='soft',
+    )
+    ensemble.fit(X_train_feat, y_train)
+
+    y_pred = ensemble.predict(X_test_feat)
+    acc = accuracy_score(y_test, y_pred)
+    print(f"\nTest Accuracy: {acc:.4f} ({acc*100:.1f}%)")
+    print(classification_report(y_test, y_pred, target_names=['Legitimate', 'Phishing']))
+
+    # Save artifacts
