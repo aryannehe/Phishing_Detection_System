@@ -340,3 +340,16 @@ def train():
     print(classification_report(y_test, y_pred, target_names=['Legitimate', 'Phishing']))
 
     # Save artifacts
+    model_data = {
+        'combiner': combiner,
+        'model': ensemble,
+        'version': '2.0',
+    }
+    with open('phish_model.pkl', 'wb') as f:
+        pickle.dump(model_data, f)
+    print("\nModel saved to phish_model.pkl")
+    return acc
+
+
+if __name__ == '__main__':
+    train()
