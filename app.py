@@ -45,3 +45,27 @@ INDICATOR_RULES = [
         ],
     },
     {
+        'id': 'suspicious_url',
+        'label': 'Suspicious or malformed URL',
+        'patterns': [
+            r'https?://\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}',
+            r'http://',
+            r'bit\.ly', r'tinyurl', r'goo\.gl',
+            r'\.tk\b', r'\.ml\b', r'\.ga\b', r'\.cf\b', r'\.gq\b',
+            r'secure.*login.*\.',
+            r'account.*verify.*\.',
+            r'verify.*account.*\.',
+        ],
+    },
+    {
+        'id': 'sensitive_data',
+        'label': 'Request for sensitive / personal information',
+        'patterns': [
+            r'\bpassword\b', r'\bcredit card\b', r'\bssn\b',
+            r'\bsocial security\b', r'\bbank account\b', r'\bpin\b',
+            r'\bcvv\b', r'\botp\b', r'\bpan card\b', r'\baadhaar\b',
+            r'\bkyc\b', r'\bifsc\b', r'\bmother.*maiden\b',
+            r'\bdate of birth\b', r'\bnetbanking\b',
+        ],
+    },
+    {
