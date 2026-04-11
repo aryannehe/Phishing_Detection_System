@@ -69,3 +69,24 @@ INDICATOR_RULES = [
         ],
     },
     {
+        'id': 'financial_lure',
+        'label': 'Financial lure / prize / lottery',
+        'patterns': [
+            r'\blottery\b', r'\bwon\b.*\bprize\b', r'\bcongratulation',
+            r'\bmillion.*dollar', r'\binheritance\b', r'\brefund\b',
+            r'\btax.*return\b', r'\bclaim.*reward', r'\bfree.*gift\b',
+            r'\bwire.*transfer\b', r'\bwestern union\b',
+        ],
+    },
+    {
+        'id': 'brand_impersonation',
+        'label': 'Brand / institution impersonation',
+        'patterns': [
+            r'\bpaypal\b', r'\bamazon\b', r'\bnetflix\b',
+            r'\bapple\b', r'\bmicrosoft\b', r'\bgoogle\b',
+            r'\bfacebook\b', r'\bsbi\b', r'\bhdfc\b', r'\bicici\b',
+            r'\baxis bank\b', r'\bincome tax\b', r'\birdai\b',
+            r'\bsebi\b', r'\birdai\b',
+        ],
+    },
+    {
