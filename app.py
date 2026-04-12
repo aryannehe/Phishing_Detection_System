@@ -90,3 +90,20 @@ INDICATOR_RULES = [
         ],
     },
     {
+        'id': 'generic_greeting',
+        'label': 'Generic / impersonal salutation',
+        'patterns': [
+            r'\bdear customer\b', r'\bdear user\b',
+            r'\bdear member\b', r'\bdear account holder\b',
+            r'\bvalued customer\b', r'\bto whom it may concern\b',
+        ],
+    },
+    {
+        'id': 'upi_fraud',
+        'label': 'UPI / digital payment fraud indicators',
+        'patterns': [
+            r'\bupi\b', r'\bupi.*pin\b', r'\bgooglepay\b',
+            r'\bphonepay\b', r'\bpaytm\b', r'\bbhim\b',
+        ],
+    },
+    {
