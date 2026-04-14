@@ -140,3 +140,29 @@ def detect_indicators(text):
     return found
 
 
+def recommended_actions(classification, indicators):
+    if classification == 'Phishing':
+        actions = [
+            "Do not click any links or download attachments in this email.",
+            "Delete this email immediately from your inbox and trash.",
+            "Do not reply to or forward this email.",
+            "Never provide personal, financial, or login information via email.",
+            "Report this email to your email provider as phishing/spam.",
+        ]
+        if 'Request for sensitive / personal information' in indicators:
+            actions.append("If you already shared information, contact your bank or relevant institution immediately.")
+        if 'Brand / institution impersonation' in indicators:
+            actions.append("Contact the impersonated organization directly using their official website or phone number.")
+        if 'UPI / digital payment fraud indicators' in indicators:
+            actions.append("Alert your bank about potential UPI fraud attempts.")
+        if 'Suspicious or malformed URL' in indicators:
+            actions.append("If you clicked any link, run a security scan on your device immediately.")
+    else:
+        actions = [
+            "This email appears legitimate based on our analysis.",
+            "Always verify sender addresses even in legitimate-looking emails.",
+            "Exercise caution before clicking links even in trusted emails.",
+        ]
+    return actions
+
+
