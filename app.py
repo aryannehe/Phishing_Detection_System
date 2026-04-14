@@ -166,3 +166,15 @@ def recommended_actions(classification, indicators):
     return actions
 
 
+def preprocess(text):
+    text = text.lower()
+    text = re.sub(r'<[^>]+>', ' ', text)
+    text = re.sub(r'https?://\S+', ' URL ', text)
+    text = re.sub(r'\S+@\S+', ' EMAIL ', text)
+    text = re.sub(r'\d{10,}', ' PHONE ', text)
+    text = re.sub(r'[^\w\s]', ' ', text)
+    text = re.sub(r'\s+', ' ', text).strip()
+    return text
+
+
+# ─── Routes ───────────────────────────────────────────────────────────────────
