@@ -277,14 +277,14 @@ class CombinedFeatures(BaseEstimator, TransformerMixin):
             ngram_range=(1, 3),
             max_features=10000,
             sublinear_tf=True,
-            min_df=1,
+            min_df=3,
         )
         self.tfidf_char = TfidfVectorizer(
             analyzer='char_wb',
             ngram_range=(3, 5),
             max_features=5000,
             sublinear_tf=True,
-            min_df=1,
+            min_df=3,
         )
         self.sec = SecurityFeatureExtractor()
         self.sec_scaler = MinMaxScaler()
