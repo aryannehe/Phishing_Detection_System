@@ -120,3 +120,23 @@ INDICATOR_RULES = [
     },
 ]
 
+def detect_indicators(text):
+    found = []
+    text_lower = text.lower()
+    for rule in INDICATOR_RULES:
+        triggered = False
+        if 'patterns' in rule:
+            for pattern in rule['patterns']:
+                if re.search(pattern, text_lower):
+                    triggered = True
+                    break
+        elif 'check' in rule:
+            try:
+                triggered = rule['check'](text)
+            except:
+                pass
+        if triggered:
+            found.append(rule['label'])
+    return found
+
+
