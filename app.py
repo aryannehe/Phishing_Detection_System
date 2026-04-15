@@ -178,3 +178,8 @@ def preprocess(text):
 
 
 # ─── Routes ───────────────────────────────────────────────────────────────────
+@app.route('/')
+def index():
+    return send_file('index.html')
+
+
