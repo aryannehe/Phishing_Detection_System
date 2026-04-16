@@ -183,3 +183,29 @@ def index():
     return send_file('index.html')
 
 
+@app.route('/scan-email', methods=['POST'])
+def scan_email():
+    try:
+        data = request.get_json(force=True)
+        subject = (data.get('subject') or '').strip()
+        body = (data.get('body') or '').strip()
+
+        if not body and not subject:
+            return jsonify({'error': 'Email body or subject is required'}), 400
+
+        full_text = subject + ' ' + body
+        cleaned = preprocess(full_text)
+
+        combiner = model_data['combiner']
+        model = model_data['model']
+
+        features = combiner.transform([cleaned])
+        pred = model.predict(features)[0]
+        proba = model.predict_proba(features)[0]
+
+        phish_prob = float(proba[1])
+        legit_prob = float(proba[0])
+        confidence = round(max(phish_prob, legit_prob) * 100, 1)
+
+        classification = 'Phishing' if pred == 1 else 'Legitimate'
+
