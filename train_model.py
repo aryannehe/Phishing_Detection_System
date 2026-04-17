@@ -274,7 +274,7 @@ class CombinedFeatures(BaseEstimator, TransformerMixin):
     def __init__(self):
         self.tfidf = TfidfVectorizer(
             analyzer='word',
-            ngram_range=(1, 3),
+            ngram_range=(1, 4),
             max_features=10000,
             sublinear_tf=False,
             min_df=3,
