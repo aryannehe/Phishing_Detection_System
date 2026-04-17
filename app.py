@@ -238,3 +238,8 @@ def scan_email():
             'legitimate_probability': round(legit_prob * 100, 1),
         })
 
+    except Exception as e:
+        traceback.print_exc()
+        return jsonify({'error': f'Analysis failed: {str(e)}'}), 500
+
+
