@@ -209,3 +209,32 @@ def scan_email():
 
         classification = 'Phishing' if pred == 1 else 'Legitimate'
 
+        # Risk level
+        if classification == 'Phishing':
+            if confidence >= 85:
+                risk_level = 'High'
+            elif confidence >= 60:
+                risk_level = 'Medium'
+            else:
+                risk_level = 'Low'
+        else:
+            if confidence >= 85:
+                risk_level = 'Low'
+            elif confidence >= 60:
+                risk_level = 'Low'
+            else:
+                risk_level = 'Medium'  # uncertain
+
+        indicators = detect_indicators(full_text)
+        actions = recommended_actions(classification, indicators)
+
+        return jsonify({
+            'classification': classification,
+            'confidence': confidence,
+            'risk_level': risk_level,
+            'indicators': indicators,
+            'recommended_actions': actions,
+            'phishing_probability': round(phish_prob * 100, 1),
+            'legitimate_probability': round(legit_prob * 100, 1),
+        })
+
