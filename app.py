@@ -243,3 +243,7 @@ def scan_email():
         return jsonify({'error': f'Analysis failed: {str(e)}'}), 500
 
 
+if __name__ == '__main__':
+    load_model()
+    print("[PhishDetect] Server starting on http://localhost:5000")
+    app.run(host='0.0.0.0', port=5000, debug=False)
