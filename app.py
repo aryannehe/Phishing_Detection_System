@@ -211,14 +211,14 @@ def scan_email():
 
         # Risk level
         if classification == 'Phishing':
-            if confidence >= 85:
+            if confidence >= 80:
                 risk_level = 'High'
             elif confidence >= 60:
                 risk_level = 'Medium'
             else:
                 risk_level = 'Low'
         else:
-            if confidence >= 85:
+            if confidence >= 80:
                 risk_level = 'Low'
             elif confidence >= 60:
                 risk_level = 'Low'
