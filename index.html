@@ -10,3 +10,38 @@
   /* ── Reset & Base ─────────────────────────────────────────────────── */
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+  :root {
+    --bg:        #0a0c0f;
+    --surface:   #111418;
+    --panel:     #161b22;
+    --border:    #21262d;
+    --border-hi: #30363d;
+    --text:      #e6edf3;
+    --muted:     #7d8590;
+    --accent:    #00d4b4;
+    --accent-dim:#00d4b420;
+    --danger:    #f85149;
+    --danger-dim:#f8514912;
+    --warn:      #e3b341;
+    --warn-dim:  #e3b34112;
+    --ok:        #3fb950;
+    --ok-dim:    #3fb95012;
+    --purple:    #a371f7;
+    --purple-dim:#a371f712;
+    --font-mono: 'JetBrains Mono', monospace;
+    --font-body: 'DM Sans', sans-serif;
+    --radius:    8px;
+    --transition: 200ms cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  html { font-size: 15px; scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: var(--font-body);
+    min-height: 100vh;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── Scrollbar ────────────────────────────────────────────────────── */
