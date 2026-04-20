@@ -116,7 +116,7 @@ INDICATOR_RULES = [
     {
         'id': 'many_exclamations',
         'label': 'Excessive exclamation marks',
-        'check': lambda text: text.count('!') >= 3,
+        'check': lambda text: text.count('!') >= 4,
     },
 ]
 
