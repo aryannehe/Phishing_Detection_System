@@ -111,7 +111,7 @@ INDICATOR_RULES = [
         'label': 'Excessive use of capital letters',
         'check': lambda text: (
             sum(1 for c in text if c.isupper()) / max(len([c for c in text if c.isalpha()]), 1)
-        ) > 0.4 and len(text) > 30,
+        ) > 0.45 and len(text) > 30,
     },
     {
         'id': 'many_exclamations',
