@@ -144,3 +144,50 @@
   }
 
   /* ── Input card ───────────────────────────────────────────────────── */
+  .card {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    overflow: hidden;
+  }
+
+  .card-header {
+    padding: 20px 24px 16px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .card-header-icon {
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    flex-shrink: 0;
+    background: var(--accent-dim);
+    border: 1px solid var(--accent)30;
+  }
+
+  .card-header-text h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+    margin-bottom: 2px;
+  }
+
+  .card-header-text p {
+    font-size: 0.82rem;
+    color: var(--muted);
+    font-weight: 400;
+  }
+
+  .card-body { padding: 24px; }
+
+  /* ── Form fields ──────────────────────────────────────────────────── */
+  .field { margin-bottom: 20px; }
+  .field:last-of-type { margin-bottom: 0; }
+
