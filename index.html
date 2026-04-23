@@ -209,3 +209,29 @@
     margin-left: 6px;
   }
 
+  input[type="text"], textarea {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 0.9rem;
+    padding: 12px 14px;
+    outline: none;
+    transition: border-color var(--transition), box-shadow var(--transition);
+    resize: none;
+  }
+
+  input[type="text"]:focus, textarea:focus {
+    border-color: var(--accent)60;
+    box-shadow: 0 0 0 3px var(--accent)15;
+  }
+
+  input[type="text"]::placeholder, textarea::placeholder {
+    color: var(--border-hi);
+  }
+
+  textarea { min-height: 200px; font-size: 0.875rem; line-height: 1.65; }
+
+  /* ── Actions row ──────────────────────────────────────────────────── */
