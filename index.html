@@ -257,3 +257,24 @@
     white-space: nowrap;
   }
 
+  .btn-primary {
+    background: var(--accent);
+    color: #000;
+    flex: 1;
+    justify-content: center;
+    min-width: 160px;
+    font-weight: 600;
+  }
+
+  .btn-primary:hover:not(:disabled) {
+    background: #00eed0;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 16px var(--accent)40;
+  }
+
+  .btn-primary:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+
