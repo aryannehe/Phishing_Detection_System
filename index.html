@@ -302,3 +302,49 @@
   }
 
   /* ── Upload area ──────────────────────────────────────────────────── */
+  .upload-zone {
+    border: 1px dashed var(--border);
+    border-radius: var(--radius);
+    padding: 20px;
+    text-align: center;
+    cursor: pointer;
+    transition: all var(--transition);
+    background: var(--surface);
+    position: relative;
+  }
+
+  .upload-zone:hover, .upload-zone.drag-over {
+    border-color: var(--accent)60;
+    background: var(--accent-dim);
+  }
+
+  .upload-zone input { display: none; }
+
+  .upload-zone .upload-icon { font-size: 22px; margin-bottom: 6px; }
+  .upload-zone .upload-label {
+    font-size: 0.82rem;
+    color: var(--muted);
+  }
+  .upload-zone .upload-label strong {
+    color: var(--accent);
+    font-weight: 500;
+  }
+  .upload-zone .upload-hint {
+    font-size: 0.72rem;
+    color: var(--border-hi);
+    margin-top: 4px;
+    font-family: var(--font-mono);
+  }
+
+  .file-chosen {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.8rem;
+    color: var(--ok);
+    margin-top: 10px;
+    font-family: var(--font-mono);
+    justify-content: center;
+  }
+
+  /* ── Loading state ────────────────────────────────────────────────── */
