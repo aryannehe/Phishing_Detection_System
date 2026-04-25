@@ -385,3 +385,12 @@
   .loading-status.active { display: block; }
 
   /* ── Results ──────────────────────────────────────────────────────── */
+  #results { margin-top: 32px; display: none; }
+  #results.visible { display: block; animation: slideUp 0.35s ease-out; }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ── Verdict banner ───────────────────────────────────────────────── */
