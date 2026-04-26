@@ -394,3 +394,71 @@
   }
 
   /* ── Verdict banner ───────────────────────────────────────────────── */
+  .verdict-banner {
+    border-radius: 10px;
+    border: 1px solid;
+    padding: 28px 28px 24px;
+    margin-bottom: 16px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .verdict-banner::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+  }
+
+  .verdict-banner.phishing {
+    background: var(--danger-dim);
+    border-color: var(--danger)40;
+  }
+  .verdict-banner.phishing::before { background: var(--danger); }
+
+  .verdict-banner.legitimate {
+    background: var(--ok-dim);
+    border-color: var(--ok)40;
+  }
+  .verdict-banner.legitimate::before { background: var(--ok); }
+
+  .verdict-top {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+
+  .verdict-icon {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    flex-shrink: 0;
+  }
+
+  .phishing .verdict-icon { background: var(--danger)20; border: 2px solid var(--danger)40; }
+  .legitimate .verdict-icon { background: var(--ok)20; border: 2px solid var(--ok)40; }
+
+  .verdict-label {
+    font-family: var(--font-mono);
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1;
+  }
+
+  .phishing .verdict-label { color: var(--danger); }
+  .legitimate .verdict-label { color: var(--ok); }
+
+  .verdict-sublabel {
+    font-size: 0.8rem;
+    color: var(--muted);
+    margin-top: 4px;
+    font-family: var(--font-mono);
+  }
+
+  /* ── Confidence meter ─────────────────────────────────────────────── */
