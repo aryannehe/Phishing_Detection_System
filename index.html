@@ -462,3 +462,52 @@
   }
 
   /* ── Confidence meter ─────────────────────────────────────────────── */
+  .confidence-row {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .confidence-bar-wrap {
+    flex: 1;
+    min-width: 200px;
+    background: var(--border);
+    border-radius: 4px;
+    height: 8px;
+    overflow: hidden;
+  }
+
+  .confidence-bar {
+    height: 100%;
+    border-radius: 4px;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 0%;
+  }
+
+  .phishing .confidence-bar { background: linear-gradient(90deg, var(--danger)80, var(--danger)); }
+  .legitimate .confidence-bar { background: linear-gradient(90deg, var(--ok)80, var(--ok)); }
+
+  .confidence-num {
+    font-family: var(--font-mono);
+    font-size: 0.85rem;
+    font-weight: 600;
+    min-width: 46px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+
+  .phishing .confidence-num { color: var(--danger); }
+  .legitimate .confidence-num { color: var(--ok); }
+
+  .confidence-label {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    color: var(--muted);
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    flex-shrink: 0;
+  }
+
+  /* ── Grid below verdict ───────────────────────────────────────────── */
