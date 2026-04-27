@@ -559,3 +559,48 @@
   .risk-low    { background: var(--ok)15;     color: var(--ok);     border: 1px solid var(--ok)30; }
 
   /* ── Probability bars ─────────────────────────────────────────────── */
+  .prob-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 8px;
+  }
+
+  .prob-row:last-child { margin-bottom: 0; }
+
+  .prob-name {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    color: var(--muted);
+    width: 80px;
+    flex-shrink: 0;
+  }
+
+  .prob-bar-wrap {
+    flex: 1;
+    background: var(--border);
+    border-radius: 3px;
+    height: 6px;
+    overflow: hidden;
+  }
+
+  .prob-bar {
+    height: 100%;
+    border-radius: 3px;
+    transition: width 0.8s 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    width: 0%;
+  }
+
+  .prob-bar.phish-bar { background: var(--danger); }
+  .prob-bar.legit-bar { background: var(--ok); }
+
+  .prob-pct {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    width: 36px;
+    text-align: right;
+    flex-shrink: 0;
+    color: var(--text);
+  }
+
+  /* ── Indicators list ──────────────────────────────────────────────── */
