@@ -699,3 +699,17 @@
   }
 
   /* ── Error state ──────────────────────────────────────────────────── */
+  .error-box {
+    background: var(--danger-dim);
+    border: 1px solid var(--danger)30;
+    border-radius: 10px;
+    padding: 16px 20px;
+    font-size: 0.875rem;
+    color: var(--danger);
+    display: none;
+    margin-top: 14px;
+    font-family: var(--font-mono);
+  }
+  .error-box.visible { display: flex; gap: 10px; align-items: flex-start; }
+
+  /* ── Footer ───────────────────────────────────────────────────────── */
