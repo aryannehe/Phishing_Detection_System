@@ -655,3 +655,47 @@
   }
 
   /* ── Actions list ─────────────────────────────────────────────────── */
+  .actions-list {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 14px;
+  }
+
+  .action-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .action-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .action-item:first-child { padding-top: 0; }
+
+  .action-num {
+    font-family: var(--font-mono);
+    font-size: 0.65rem;
+    color: var(--muted);
+    background: var(--border);
+    border-radius: 4px;
+    padding: 2px 7px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .action-text {
+    font-size: 0.875rem;
+    color: var(--text);
+    line-height: 1.55;
+  }
+
+  /* ── Rescan button ────────────────────────────────────────────────── */
+  .rescan-row {
+    display: flex;
+    justify-content: center;
+    margin-top: 8px;
+  }
+
+  /* ── Error state ──────────────────────────────────────────────────── */
