@@ -604,3 +604,54 @@
   }
 
   /* ── Indicators list ──────────────────────────────────────────────── */
+  .indicators-full {
+    background: var(--panel);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 14px;
+  }
+
+  .indicator-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 0;
+    border-bottom: 1px solid var(--border);
+    animation: fadeIn 0.3s ease-out both;
+  }
+
+  .indicator-item:last-child { border-bottom: none; padding-bottom: 0; }
+  .indicator-item:first-child { padding-top: 0; }
+
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateX(-8px); }
+    to   { opacity: 1; transform: translateX(0); }
+  }
+
+  .indicator-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--warn);
+    margin-top: 7px;
+    flex-shrink: 0;
+    box-shadow: 0 0 6px var(--warn)60;
+  }
+
+  .indicator-text {
+    font-size: 0.875rem;
+    color: var(--text);
+    line-height: 1.5;
+  }
+
+  .no-indicators {
+    font-size: 0.875rem;
+    color: var(--ok);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px 0;
+  }
+
+  /* ── Actions list ─────────────────────────────────────────────────── */
