@@ -713,3 +713,32 @@
   .error-box.visible { display: flex; gap: 10px; align-items: flex-start; }
 
   /* ── Footer ───────────────────────────────────────────────────────── */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 20px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 0.75rem;
+    color: var(--muted);
+    font-family: var(--font-mono);
+  }
+
+  .footer-badge {
+    background: var(--accent-dim);
+    border: 1px solid var(--accent)20;
+    color: var(--accent);
+    border-radius: 4px;
+    padding: 3px 10px;
+    font-size: 0.68rem;
+    letter-spacing: 0.05em;
+  }
+
+  /* ── Char counter ─────────────────────────────────────────────────── */
+  .char-count {
+    text-align: right;
+    font-size: 0.7rem;
+    color: var(--border-hi);
+    font-family: var(--font-mono);
+    margin-top: 5px;
+  }
