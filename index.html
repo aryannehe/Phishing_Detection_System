@@ -772,3 +772,28 @@
         </div>
       </div>
       <div class="card-body">
+        <div class="field">
+          <label for="subject">Email Subject <span class="optional">— optional</span></label>
+          <input type="text" id="subject" placeholder="e.g., URGENT: Your account has been compromised"/>
+        </div>
+
+        <div class="field">
+          <label for="body">Email Body</label>
+          <textarea id="body" placeholder="Paste the full email content here, including headers if available..."></textarea>
+          <div class="char-count"><span id="char-count">0</span> characters</div>
+        </div>
+
+        <div class="field">
+          <label>Upload File <span class="optional">— .txt or .eml</span></label>
+          <div class="upload-zone" id="drop-zone">
+            <input type="file" id="file-input" accept=".txt,.eml"/>
+            <div class="upload-icon">📎</div>
+            <div class="upload-label"><strong>Click to upload</strong> or drag and drop</div>
+            <div class="upload-hint">.txt · .eml · max 500 KB</div>
+          </div>
+          <div class="file-chosen" id="file-chosen" style="display:none">
+            ✓ <span id="file-name"></span>
+            <button class="btn btn-ghost" style="padding:2px 8px;font-size:0.7rem;" onclick="clearFile()">✕</button>
+          </div>
+        </div>
+
