@@ -797,3 +797,22 @@
           </div>
         </div>
 
+        <div class="actions">
+          <button class="btn btn-primary" id="analyze-btn" onclick="analyzeEmail()">
+            <span>⚡</span> Analyze Email
+          </button>
+          <button class="btn btn-secondary" onclick="clearAll()">Clear</button>
+        </div>
+
+        <div class="loading-bar" id="loading-bar"></div>
+        <div class="loading-status" id="loading-status">
+          🔬 Running ML inference and heuristic analysis…
+        </div>
+
+        <div class="error-box" id="error-box">
+          <span>⚠</span>
+          <span id="error-text">An error occurred.</span>
+        </div>
+      </div>
+    </div>
+
