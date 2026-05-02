@@ -325,7 +325,7 @@ def train():
 
     print("Training ensemble model...")
     lr = LogisticRegression(C=3.0, max_iter=1000, class_weight='balanced', solver='lbfgs')
-    rf = RandomForestClassifier(n_estimators=250, max_depth=12, class_weight='balanced', random_state=42, n_jobs=4)
+    rf = RandomForestClassifier(n_estimators=200, max_depth=12, class_weight='balanced', random_state=42, n_jobs=4)
     gb = GradientBoostingClassifier(n_estimators=150, max_depth=5, learning_rate=0.08, random_state=42)
 
     ensemble = VotingClassifier(
