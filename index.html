@@ -837,3 +837,28 @@
       </div>
 
       <!-- Risk + Probability grid -->
+      <div class="result-grid">
+        <!-- Risk -->
+        <div class="result-panel">
+          <div class="panel-title">🔔 Risk Level</div>
+          <div id="risk-badge" class="risk-badge"></div>
+          <p id="risk-desc" style="font-size:0.82rem;color:var(--muted);line-height:1.55;margin-top:6px;"></p>
+        </div>
+
+        <!-- Probability -->
+        <div class="result-panel">
+          <div class="panel-title">📊 Probability Breakdown</div>
+          <div class="prob-row">
+            <div class="prob-name">Phishing</div>
+            <div class="prob-bar-wrap"><div class="prob-bar phish-bar" id="phish-bar"></div></div>
+            <div class="prob-pct" id="phish-pct"></div>
+          </div>
+          <div class="prob-row">
+            <div class="prob-name">Legitimate</div>
+            <div class="prob-bar-wrap"><div class="prob-bar legit-bar" id="legit-bar"></div></div>
+            <div class="prob-pct" id="legit-pct"></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Indicators -->
