@@ -889,3 +889,44 @@
 
 <script>
 // ── File upload ────────────────────────────────────────────────────────────
+const dropZone = document.getElementById('drop-zone');
+const fileInput = document.getElementById('file-input');
+
+dropZone.addEventListener('click', () => fileInput.click());
+
+dropZone.addEventListener('dragover', e => {
+  e.preventDefault();
+  dropZone.classList.add('drag-over');
+});
+
+dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+
+dropZone.addEventListener('drop', e => {
+  e.preventDefault();
+  dropZone.classList.remove('drag-over');
+  if (e.dataTransfer.files.length) handleFile(e.dataTransfer.files[0]);
+});
+
+fileInput.addEventListener('change', () => {
+  if (fileInput.files.length) handleFile(fileInput.files[0]);
+});
+
+function handleFile(file) {
+  const reader = new FileReader();
+  reader.onload = e => {
+    document.getElementById('body').value = e.target.result;
+    updateCharCount();
+    document.getElementById('file-chosen').style.display = 'flex';
+    document.getElementById('file-name').textContent = file.name;
+    dropZone.style.display = 'none';
+  };
+  reader.readAsText(file);
+}
+
+function clearFile() {
+  fileInput.value = '';
+  document.getElementById('file-chosen').style.display = 'none';
+  dropZone.style.display = 'block';
+}
+
+// ── Char count ─────────────────────────────────────────────────────────────
