@@ -324,7 +324,7 @@ def train():
     X_test_feat = combiner.transform(X_test)
 
     print("Training ensemble model...")
-    lr = LogisticRegression(C=3.0, max_iter=1000, class_weight='balanced', solver='lbfgs')
+    lr = LogisticRegression(C=5.0, max_iter=1000, class_weight='balanced', solver='lbfgs')
     rf = RandomForestClassifier(n_estimators=200, max_depth=15, class_weight='balanced', random_state=42, n_jobs=4)
     gb = GradientBoostingClassifier(n_estimators=150, max_depth=5, learning_rate=0.1, random_state=42)
 
