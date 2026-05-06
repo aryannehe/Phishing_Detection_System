@@ -930,3 +930,10 @@ function clearFile() {
 }
 
 // ── Char count ─────────────────────────────────────────────────────────────
+const bodyArea = document.getElementById('body');
+bodyArea.addEventListener('input', updateCharCount);
+function updateCharCount() {
+  document.getElementById('char-count').textContent = bodyArea.value.length.toLocaleString();
+}
+
+// ── Analyze ────────────────────────────────────────────────────────────────
