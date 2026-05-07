@@ -937,3 +937,38 @@ function updateCharCount() {
 }
 
 // ── Analyze ────────────────────────────────────────────────────────────────
+async function analyzeEmail() {
+  const subject = document.getElementById('subject').value.trim();
+  const body = document.getElementById('body').value.trim();
+
+  if (!subject && !body) {
+    showError('Please enter an email subject or body before analyzing.');
+    return;
+  }
+
+  setLoading(true);
+  hideError();
+  document.getElementById('results').classList.remove('visible');
+  document.getElementById('results').style.display = 'none';
+
+  try {
+    const response = await fetch('/scan-email', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ subject, body }),
+    });
+
+    if (!response.ok) {
+      const err = await response.json();
+      throw new Error(err.error || 'Server error');
+    }
+
+    const data = await response.json();
+    renderResults(data);
+  } catch (err) {
+    showError(err.message || 'Failed to connect to the analysis server. Make sure the backend is running.');
+  } finally {
+    setLoading(false);
+  }
+}
+
