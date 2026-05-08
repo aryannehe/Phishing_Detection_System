@@ -972,3 +972,34 @@ async function analyzeEmail() {
   }
 }
 
+function setLoading(on) {
+  const btn = document.getElementById('analyze-btn');
+  const bar = document.getElementById('loading-bar');
+  const status = document.getElementById('loading-status');
+  btn.disabled = on;
+  btn.innerHTML = on ? '<span>⏳</span> Analyzing…' : '<span>⚡</span> Analyze Email';
+  bar.classList.toggle('active', on);
+  status.classList.toggle('active', on);
+}
+
+function showError(msg) {
+  const box = document.getElementById('error-box');
+  document.getElementById('error-text').textContent = msg;
+  box.classList.add('visible');
+}
+
+function hideError() {
+  document.getElementById('error-box').classList.remove('visible');
+}
+
+function clearAll() {
+  document.getElementById('subject').value = '';
+  document.getElementById('body').value = '';
+  updateCharCount();
+  clearFile();
+  document.getElementById('results').classList.remove('visible');
+  document.getElementById('results').style.display = 'none';
+  hideError();
+}
+
+// ── Render results ─────────────────────────────────────────────────────────
