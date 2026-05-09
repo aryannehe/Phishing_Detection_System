@@ -1003,3 +1003,69 @@ function clearAll() {
 }
 
 // ── Render results ─────────────────────────────────────────────────────────
+function renderResults(data) {
+  const isPhishing = data.classification === 'Phishing';
+  const banner = document.getElementById('verdict-banner');
+  const icon = document.getElementById('verdict-icon');
+  const label = document.getElementById('verdict-label');
+  const confBar = document.getElementById('confidence-bar');
+  const confNum = document.getElementById('confidence-num');
+
+  // Verdict
+  banner.className = 'verdict-banner ' + (isPhishing ? 'phishing' : 'legitimate');
+  icon.textContent = isPhishing ? '🚨' : '✅';
+  label.textContent = data.classification.toUpperCase();
+  confNum.textContent = data.confidence + '%';
+
+  setTimeout(() => {
+    confBar.style.width = data.confidence + '%';
+    document.getElementById('phish-bar').style.width = data.phishing_probability + '%';
+    document.getElementById('legit-bar').style.width = data.legitimate_probability + '%';
+  }, 80);
+
+  document.getElementById('phish-pct').textContent = data.phishing_probability + '%';
+  document.getElementById('legit-pct').textContent = data.legitimate_probability + '%';
+
+  // Risk
+  const riskEl = document.getElementById('risk-badge');
+  riskEl.className = 'risk-badge risk-' + data.risk_level.toLowerCase();
+  riskEl.textContent = data.risk_level;
+
+  const riskDesc = {
+    'High':   'Multiple strong phishing signals detected. This email is very likely malicious.',
+    'Medium': 'Some suspicious indicators found. Exercise caution with this email.',
+    'Low':    'Few or no phishing signals detected. This email appears safe.',
+  };
+  document.getElementById('risk-desc').textContent = riskDesc[data.risk_level] || '';
+
+  // Indicators
+  const indList = document.getElementById('indicators-list');
+  if (data.indicators.length === 0) {
+    indList.innerHTML = '<div class="no-indicators">✓ No phishing indicators detected</div>';
+  } else {
+    indList.innerHTML = data.indicators.map((ind, i) =>
+      `<div class="indicator-item" style="animation-delay:${i * 60}ms">
+        <div class="indicator-dot"></div>
+        <div class="indicator-text">${escHtml(ind)}</div>
+      </div>`
+    ).join('');
+  }
+
+  // Actions
+  const actList = document.getElementById('actions-list');
+  actList.innerHTML = data.recommended_actions.map((action, i) =>
+    `<div class="action-item">
+      <span class="action-num">0${i+1}</span>
+      <div class="action-text">${escHtml(action)}</div>
+    </div>`
+  ).join('');
+
+  // Show results
+  const resultsEl = document.getElementById('results');
+  resultsEl.style.display = 'block';
+  requestAnimationFrame(() => {
+    resultsEl.classList.add('visible');
+    resultsEl.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+}
+
