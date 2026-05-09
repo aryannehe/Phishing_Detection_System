@@ -343,7 +343,7 @@ def train():
     model_data = {
         'combiner': combiner,
         'model': ensemble,
-        'version': '2.1',
+        'version': '2.0',
     }
     with open('phish_model.pkl', 'wb') as f:
         pickle.dump(model_data, f)
