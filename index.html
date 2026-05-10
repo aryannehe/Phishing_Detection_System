@@ -1069,3 +1069,9 @@ function renderResults(data) {
   });
 }
 
+function escHtml(str) {
+  return str.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+</script>
+</body>
+</html>
