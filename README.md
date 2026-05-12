@@ -39,3 +39,25 @@ phishdetect/
 └── README.md
 ```
 
+## API
+
+**POST /scan-email**
+
+Request:
+```json
+{ "subject": "string", "body": "string" }
+```
+
+Response:
+```json
+{
+  "classification": "Phishing",
+  "confidence": 97.3,
+  "risk_level": "High",
+  "indicators": ["Urgent language", "Suspicious URL"],
+  "recommended_actions": ["Delete this email..."],
+  "phishing_probability": 97.3,
+  "legitimate_probability": 2.7
+}
+```
+
