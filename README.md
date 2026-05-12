@@ -29,3 +29,13 @@ Navigate to `http://localhost:5000`
 
 ---
 
+## Project Structure
+```
+phishdetect/
+├── train_model.py      # ML training script
+├── app.py              # Flask backend + REST API
+├── index.html          # Frontend (served by Flask)
+├── phish_model.pkl     # Trained model (generated after training)
+└── README.md
+```
+
