@@ -61,3 +61,8 @@ Response:
 }
 ```
 
+## ML Architecture
+- **Text features**: TF-IDF (word unigrams/bigrams/trigrams) + character n-grams
+- **Security features**: URL count, suspicious keywords, caps ratio, etc.
+- **Model**: Soft-voting ensemble of Logistic Regression + Random Forest + Gradient Boosting
+- **Accuracy**: ~99%+ on test set
